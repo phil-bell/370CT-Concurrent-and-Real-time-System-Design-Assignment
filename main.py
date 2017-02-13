@@ -6,7 +6,7 @@ cv = threading.Condition()
 control = 0
 
 
-def func1():
+def wheel1():
     global control
     while True:
         cv.acquire()
@@ -18,7 +18,7 @@ def func1():
         cv.notifyAll()
         cv.release()
 
-def func2():
+def wheel2():
     global control
     while True:
         cv.acquire()
@@ -30,7 +30,7 @@ def func2():
         cv.notifyAll()
         cv.release()
 
-def func3():
+def wheel3():
     global control
     while True:
         cv.acquire()
@@ -41,7 +41,7 @@ def func3():
         cv.notifyAll()
         cv.release()       
 
-def func4():
+def wheel4():
     global control
     while True:
         cv.acquire()
@@ -56,7 +56,7 @@ def menu():
     global control
     while True:
          if control == 0:   
-            print("Please enter which thread you would like to start with: \na) Thread 1\nb) Thread 2\nc) Thread 3\nd) Thread 4")
+            print("Which wheel would you like to check: \na) Wheel 1b) Thread 2\nc) Wheel 3\nd) Wheel 4")
             answer = input("Enter: ")
             if (answer == "a"):
                 control = 1
@@ -70,10 +70,10 @@ def menu():
                 print ("Please enter a valid entry (a,b,c,d)")
                 control = 0
 
-t1 = Thread(target=func1,args=())
-t2 = Thread(target=func2,args=())
-t3 = Thread(target=func3,args=())
-t4 = Thread(target=func4,args=())
+t1 = Thread(target=wheel1,args=())
+t2 = Thread(target=wheel2,args=())
+t3 = Thread(target=wheel3,args=())
+t4 = Thread(target=wheel4,args=())
 t5 = Thread(target=menu,args=())
 t1.start()
 t2.start()
