@@ -3,11 +3,15 @@ from threading import Lock
 from threading import Thread
 from time import sleep
 from sys import exit
-lock = threading.Condition()
-control = 0
-currentX = 1
-currentY = 1
+lock = threading.Condition() #thread condition var
+control = 0 #global control value
+currentX = 1 #global for X position of the rover
+currentY = 1 #global for Y position of the rover
 
+"""
+makes the map that the rover moves around, it is a 2 dimentional list (Matrix).
+(currently only makes an empty map of 0s)
+"""
 def mapCreate(w,h):
     mapToOut = [[0 for i in range(w)] for j in range(h)]
     return mapToOut
@@ -35,13 +39,15 @@ def mapCheck(marsMap,wheelX,wheelY):
         return "Out of boundaries"
     return 0
 
-
+"""
+Main control thread that manages rover movement
+"""
 def mainControl(marsMap):
     global control
     while True:
         lock.acquire()
         print ("Main Control")
-        sleep(0.1)
+        sleep(0)
         control = 1
         lock.notifyAll()
         lock.release()
@@ -60,12 +66,9 @@ def wheel1(marsMap):
 
         wheelX = currentX+1
         wheelY = currentY+1 
-        print(mapCheck(marsMap,wheelX,wheelY))
 
-        if (control == 1):
-            sleep(0.1)
-            control = 2
-            print("Wheel: ",control)
+        print("Wheel 1:",mapCheck(marsMap,wheelX,wheelY))
+        sleep(0)
             
         lock.notifyAll()
         lock.release()
@@ -73,59 +76,83 @@ def wheel1(marsMap):
 def wheel2(marsMap):
     global control
     while True:
-        lock.acquire() 
-        sleep(0.1)
-        control = 2
-        print ("Wheel: ",control)
+        lock.acquire()
+
+        wheelX = currentX+1
+        wheelY = currentY+1 
+
+        print("Wheel 2:",mapCheck(marsMap,wheelX,wheelY))
+        sleep(0)
+            
         lock.notifyAll()
         lock.release()
 
 def wheel3(marsMap):
     global control
     while True:
-        lock.acquire() 
-        sleep(0.1)
-        control = 3
-        print("Wheel: ",control)
+        lock.acquire()
+
+        wheelX = currentX+1
+        wheelY = currentY+1 
+
+        print("Wheel 3:",mapCheck(marsMap,wheelX,wheelY))
+        sleep(0)
+            
         lock.notifyAll()
-        lock.release()       
+        lock.release()      
 
 def wheel4(marsMap):
     global control
     while True:
-        lock.acquire() 
-        sleep(0.1)
-        print("Wheel: ",control)
-        control = 4
+        lock.acquire()
+
+        wheelX = currentX+1
+        wheelY = currentY+1 
+
+        print("Wheel 4:",mapCheck(marsMap,wheelX,wheelY))
+        sleep(0)
+            
         lock.notifyAll()
-        lock.release()    
+        lock.release()
+  
 
 def wheel5(marsMap):
     global control
     while True:
-        lock.acquire() 
-        sleep(0.1)
-        control = 5
-        print("Wheel: ",control)
+        lock.acquire()
+
+        wheelX = currentX+1
+        wheelY = currentY+1 
+
+        print("Wheel 5:",mapCheck(marsMap,wheelX,wheelY))
+        sleep(0)
+            
         lock.notifyAll()
-        lock.release()  
+        lock.release()
 
 def wheel6(marsMap):
     global control
     while True:
-        lock.acquire() 
-        sleep(0.1)
-        control = 6
-        print("Wheel: ",control)
-        lock.notifyAll()
-        lock.release()  
+        lock.acquire()
 
+        wheelX = currentX+1
+        wheelY = currentY+1 
+
+        print("Wheel 6:",mapCheck(marsMap,wheelX,wheelY))
+        sleep(0)
+            
+        lock.notifyAll()
+        lock.release()
+
+"""
+menu for testing each wheel (not currently implemented)
+"""
 def menu(marsMap):
     global control
     lock.acquire() 
 
-    print("Which wheel would you like to check: \n1) Wheel 1\n2) Wheel 2\n3) Wheel 3\n4) Wheel 4\n5) Exit")
-    answer = int(input("Enter: "))
+    print("Which wheel would you like to check:\n1) Wheel 1\n2) Wheel 2\n3) Wheel 3\n4) Wheel 4\n5) Exit")
+    answer = int(input("Enter:"))
     #print (type(answer))
     if (answer == 1):
         print ("1111")
@@ -144,27 +171,35 @@ def menu(marsMap):
     control = 0
     lock.release()
 
-marsMap = mapCreate(10,10)
-print (marsMap)
+marsMap = mapCreate(10,10) #calls the mapCreate function to make the map
+for i in marsMap:
+    print (i)
 
 t1 = Thread(target=mainControl,args=(marsMap,))
 t2 = Thread(target=wheel1,args=(marsMap,))
 t3 = Thread(target=wheel2,args=(marsMap,))
 t4 = Thread(target=wheel3,args=(marsMap,))
 t5 = Thread(target=wheel4,args=(marsMap,))
-t6 = Thread(target=menu,args=(marsMap,))
+t6 = Thread(target=wheel5,args=(marsMap,))
+t7 = Thread(target=wheel6,args=(marsMap,))
+t8 = Thread(target=menu,args=(marsMap,))
 t1.start()
 t2.start()
 t3.start()
 t4.start()
 t5.start()
-#t6.start()
+t6.start()
+t7.start()
+#t8.start()
 t1.join()
 t2.join()
 t3.join()
 t4.join()
 t5.join()
-#t6.join()
+t6.join()
+t7.join()
+#t8.join()
+
 
 
 
