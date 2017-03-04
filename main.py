@@ -1,4 +1,5 @@
 import threading
+import random
 from threading import Lock
 from threading import Thread
 from time import sleep
@@ -14,6 +15,12 @@ makes the map that the rover moves around, it is a 2 dimentional list (Matrix).
 """
 def mapCreate(w,h):
     mapToOut = [[0 for i in range(w)] for j in range(h)]
+    for i in range(0,40):
+        genX = random.randint(0,9)
+        genY = random.randint(0,9)
+        if mapToOut[genX][genY] == 0:
+            mapToOut[genX][genY] = random.randint(1,3)
+    mapToOut[genX][genY] = 4
     return mapToOut
 
 
@@ -46,11 +53,13 @@ def mainControl(marsMap):
     global control
     while True:
         lock.acquire()
+
         print ("Main Control")
-        sleep(0)
         control = 1
+
         lock.notifyAll()
         lock.release()
+        sleep(0.5)
 
 """
 Wheel positions:
@@ -58,6 +67,7 @@ Wheel positions:
 2*5
 3-6
 currentX & currentY are the center of the rover
+[0][0] is top left not botton left!
 """
 def wheel1(marsMap):
     global control
@@ -68,10 +78,10 @@ def wheel1(marsMap):
         wheelY = currentY-1 
 
         print("Wheel 1:",mapCheck(marsMap,wheelX,wheelY))
-        sleep(0)
-            
+
         lock.notifyAll()
         lock.release()
+        sleep(0.5)
 
 def wheel2(marsMap):
     global control
@@ -82,10 +92,10 @@ def wheel2(marsMap):
         wheelY = currentY
 
         print("Wheel 2:",mapCheck(marsMap,wheelX,wheelY))
-        sleep(0)
-            
+
         lock.notifyAll()
         lock.release()
+        sleep(0.5)
 
 def wheel3(marsMap):
     global control
@@ -96,10 +106,10 @@ def wheel3(marsMap):
         wheelY = currentY+1 
 
         print("Wheel 3:",mapCheck(marsMap,wheelX,wheelY))
-        sleep(0)
-            
+
         lock.notifyAll()
-        lock.release()      
+        lock.release()
+        sleep(0.5)
 
 def wheel4(marsMap):
     global control
@@ -110,10 +120,10 @@ def wheel4(marsMap):
         wheelY = currentY-1 
 
         print("Wheel 4:",mapCheck(marsMap,wheelX,wheelY))
-        sleep(0)
-            
+
         lock.notifyAll()
         lock.release()
+        sleep(0.5)
   
 
 def wheel5(marsMap):
@@ -125,10 +135,10 @@ def wheel5(marsMap):
         wheelY = currentY
 
         print("Wheel 5:",mapCheck(marsMap,wheelX,wheelY))
-        sleep(0)
-            
+
         lock.notifyAll()
         lock.release()
+        sleep(0.5)
 
 def wheel6(marsMap):
     global control
@@ -139,10 +149,10 @@ def wheel6(marsMap):
         wheelY = currentY+1 
 
         print("Wheel 6:",mapCheck(marsMap,wheelX,wheelY))
-        sleep(0)
-            
+
         lock.notifyAll()
         lock.release()
+        sleep(0.5)
 
 """
 menu for testing each wheel (not currently implemented)
@@ -183,6 +193,7 @@ t5 = Thread(target=wheel4,args=(marsMap,))
 t6 = Thread(target=wheel5,args=(marsMap,))
 t7 = Thread(target=wheel6,args=(marsMap,))
 t8 = Thread(target=menu,args=(marsMap,))
+"""
 t1.start()
 t2.start()
 t3.start()
@@ -199,7 +210,4 @@ t5.join()
 t6.join()
 t7.join()
 #t8.join()
-
-
-
-
+"""
