@@ -65,7 +65,7 @@ def wheel1(marsMap):
         lock.acquire()
 
         wheelX = currentX-1
-        wheelY = currentY+1 
+        wheelY = currentY-1 
 
         print("Wheel 1:",mapCheck(marsMap,wheelX,wheelY))
         sleep(0)
@@ -93,7 +93,7 @@ def wheel3(marsMap):
         lock.acquire()
 
         wheelX = currentX-1
-        wheelY = currentY-1 
+        wheelY = currentY+1 
 
         print("Wheel 3:",mapCheck(marsMap,wheelX,wheelY))
         sleep(0)
@@ -107,7 +107,7 @@ def wheel4(marsMap):
         lock.acquire()
 
         wheelX = currentX+1
-        wheelY = currentY+1 
+        wheelY = currentY-1 
 
         print("Wheel 4:",mapCheck(marsMap,wheelX,wheelY))
         sleep(0)
@@ -136,7 +136,7 @@ def wheel6(marsMap):
         lock.acquire()
 
         wheelX = currentX+1
-        wheelY = currentY-1 
+        wheelY = currentY+1 
 
         print("Wheel 6:",mapCheck(marsMap,wheelX,wheelY))
         sleep(0)
