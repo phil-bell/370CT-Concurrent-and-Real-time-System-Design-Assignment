@@ -193,7 +193,7 @@ t5 = Thread(target=wheel4,args=(marsMap,))
 t6 = Thread(target=wheel5,args=(marsMap,))
 t7 = Thread(target=wheel6,args=(marsMap,))
 t8 = Thread(target=menu,args=(marsMap,))
-"""
+
 t1.start()
 t2.start()
 t3.start()
@@ -210,4 +210,3 @@ t5.join()
 t6.join()
 t7.join()
 #t8.join()
-"""
