@@ -106,6 +106,7 @@ def wheel1(marsMap,num,modX,modY):
             wheelLifted = 1 
             wheelTractn = 0
             wheelTorque = 0
+            
 
         lock.notifyAll()
         lock.release()
