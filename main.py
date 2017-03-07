@@ -94,18 +94,22 @@ def wheel1(marsMap,num,modX,modY):
             wheelLifted = 1
             wheelTractn = 1
             wheelTorque = 1
+            print ("Raising wheel:",num,)
         elif (mapResult == "hole"):
             wheelLifted = 0
             wheelTractn = 0
             wheelTorque = 0
+            print ("Stopping wheel:",num,)
         elif (mapResult == "sand"):
             wheelLifted = 0
             wheelTractn = 1
             wheelTorque = 0
+            print ("Lowing torque wheel:",num)
         elif (mapResult == "water"):
             wheelLifted = 1 
             wheelTractn = 0
             wheelTorque = 0
+            print ("Raising and stopping wheel:",num)
             
 
         lock.notifyAll()
