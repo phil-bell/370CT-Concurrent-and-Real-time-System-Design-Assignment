@@ -1,5 +1,6 @@
 import time
 import random
+import os
 
 def mapCreate(w,h):
     mapToOut = [[0 for i in range(w)] for j in range(h)]
@@ -11,4 +12,7 @@ def mapCreate(w,h):
     mapToOut[genX][genY] = 4
     return mapToOut
 
-print ("\n".join("".join(row) for row in mapCreate(10,10)))
+while True:
+    os.system("cls")
+    print ("\n".join("".join(str(row)) for row in mapCreate(10,10)))
+    time.sleep(1)
