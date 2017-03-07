@@ -46,19 +46,21 @@ def mapCheck(marsMap,wheelX,wheelY):
     return 0
 
 """
-Main control thread that manages rover movement
+Main control thread that manages rover movement. Uses
+the global vars currentX and currentY
 """
 def mainControl(marsMap):
     global control
     while True:
         lock.acquire()
 
-        print ("Main Control")
+        print ("Rover locaton X:",currentX,"Y:",currentY)
+
         control = 1
 
         lock.notifyAll()
         lock.release()
-        sleep(5)
+        sleep(1)
 
 """
 Wheel positions:
@@ -72,19 +74,42 @@ location of the wheel in relation center of the rover.
 """
 def wheel1(marsMap,num,modX,modY):
     global control
+    wheelLifted = 0 #represents if the wheel is lifted or not. 0 = on the ground, 1 = raised off the ground (used when over a rock)
+    wheelTractn = 0 #represents if the wheel should spin or not. 0 = no spin, 1 = spin (used when over a hole)
+    wheelTorque = 0 #represents if the wheel needs low or high torque. 0 = low torque, 1 = high torque (used when on sand)
     while True:
         lock.acquire()
 
         wheelX = currentX+modX
         wheelY = currentY+modY 
+        mapResult = mapCheck(marsMap,wheelX,wheelY)
 
-        print("Wheel",num,":",mapCheck(marsMap,wheelX,wheelY))
-        print ("X:",wheelX)
-        print ("Y:",wheelY)
+        print("X:",wheelX,"Y:",wheelY,"Wheel",num,":",mapResult)
+        
+        if (mapResult == "clear"):
+            wheelLifted = 0 
+            wheelTractn = 1
+            wheelTorque = 1
+        elif (mapResult == "rock"):
+            wheelLifted = 1
+            wheelTractn = 1
+            wheelTorque = 1
+        elif (mapResult == "hole"):
+            wheelLifted = 0
+            wheelTractn = 0
+            wheelTorque = 0
+        elif (mapResult == "sand"):
+            wheelLifted = 0
+            wheelTractn = 1
+            wheelTorque = 0
+        elif (mapResult == "water"):
+            wheelLifted = 1 
+            wheelTractn = 0
+            wheelTorque = 0
 
         lock.notifyAll()
         lock.release()
-        sleep(5)
+        sleep(1)
 
 
 """
@@ -134,9 +159,7 @@ t4.start()
 t5.start()
 t6.start()
 t7.start()
-#t8.start()
 
-#t8.join()
 
 
 """def wheel2(marsMap):
