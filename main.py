@@ -54,7 +54,7 @@ def mainControl(marsMap):
     while True:
         lock.acquire()
 
-        print ("Rover locaton X:",currentX,"Y:",currentY)
+        print ("Rover locaton X:",currentX,"Y:",currentY,end="\r")
 
         control = 1
 
@@ -84,8 +84,9 @@ def wheel1(marsMap,num,modX,modY):
         wheelY = currentY+modY 
         mapResult = mapCheck(marsMap,wheelX,wheelY)
 
-        print("X:",wheelX,"Y:",wheelY,"Wheel",num,":",mapResult)
-        
+        print("X:",wheelX,"Y:",wheelY,"Wheel",num,":",mapResult,end="\r")
+
+        """
         if (mapResult == "clear"):
             wheelLifted = 0 
             wheelTractn = 1
@@ -110,8 +111,7 @@ def wheel1(marsMap,num,modX,modY):
             wheelTractn = 0
             wheelTorque = 0
             print ("Raising and stopping wheel:",num)
-            
-
+        """
         lock.notifyAll()
         lock.release()
         sleep(1)
