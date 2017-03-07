@@ -11,4 +11,4 @@ def mapCreate(w,h):
     mapToOut[genX][genY] = 4
     return mapToOut
 
-print ("\n".join("".join(row)for row in mapCreate(10,10)))
+print ("\n".join("".join(row) for row in mapCreate(10,10)))
