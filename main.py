@@ -51,16 +51,32 @@ the global vars currentX and currentY
 """
 def mainControl(marsMap):
     global control
+    global currentX
+    global currentY
+    direction = 0 #0=east, 1=west
     while True:
         lock.acquire()
 
-        print ("Rover locaton X:",currentX,"Y:",currentY,end="\r")
+        print ("Rover locaton X:",currentX,"Y:",currentY)
+        
+        if (direction == 0):
+            if currentX < 8:
+                currentX += 1
+            else:
+                currentY += 1
+                direction = 1
+        elif (direction == 1):
+            if currentX > 1:
+                currentX -= 1
+            else:
+                currentY += 1
+                direction = 0
 
         control = 1
 
         lock.notifyAll()
         lock.release()
-        sleep(1)
+        sleep(2)
 
 """
 Wheel positions:
@@ -84,18 +100,18 @@ def wheel1(marsMap,num,modX,modY):
         wheelY = currentY+modY 
         mapResult = mapCheck(marsMap,wheelX,wheelY)
 
-        print("X:",wheelX,"Y:",wheelY,"Wheel",num,":",mapResult,end="\r")
+        #print("X:",wheelX,"Y:",wheelY,"Wheel",num,":",mapResult)
 
-        """
         if (mapResult == "clear"):
             wheelLifted = 0 
             wheelTractn = 1
             wheelTorque = 1
+            #print ("Normal operation wheel:",num)
         elif (mapResult == "rock"):
             wheelLifted = 1
             wheelTractn = 1
             wheelTorque = 1
-            print ("Raising wheel:",num,)
+            print ("Raising wheel:",num)
         elif (mapResult == "hole"):
             wheelLifted = 0
             wheelTractn = 0
@@ -111,7 +127,7 @@ def wheel1(marsMap,num,modX,modY):
             wheelTractn = 0
             wheelTorque = 0
             print ("Raising and stopping wheel:",num)
-        """
+
         lock.notifyAll()
         lock.release()
         sleep(1)
