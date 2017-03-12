@@ -1,16 +1,19 @@
 import threading
 import random
+import sys
 from threading import Lock
 from threading import Thread
 from time import sleep
-from sys import exit
 lock = threading.Condition() #thread condition var
 control = 0 #global control value
 currentX = 1 #global for X position of the rover
 currentY = 1 #global for Y position of the rover
 
 """
-makes the map that the rover moves around, it is a 2 dimentional list (Matrix).
+Makes the map that the rover moves around, it is a 2 dimentional list (Matrix).
+Must be passed:
+    * desired width of map
+    * Desired height of map
 """
 def mapCreate(w,h):
     mapToOut = [[0 for i in range(w)] for j in range(h)]
@@ -24,11 +27,16 @@ def mapCreate(w,h):
 
 
 """
-0 = normal ground
-1 = rock (blocked)
-2 = hole (freewheeling)
-3 = sand (sinking)
-4 = water (Mission Success)
+What each number represents in the marMap:
+    0 = normal ground
+    1 = rock (blocked)
+    2 = hole (freewheeling)
+    3 = sand (sinking)
+    4 = water (Mission Success)
+Must be passed:
+    * The mar map
+    * The wheels X coordinate
+    * The wheels Y coordinate
 """
 def mapCheck(marsMap,wheelX,wheelY):
     if marsMap[wheelX][wheelY] == 0:
@@ -46,8 +54,39 @@ def mapCheck(marsMap,wheelX,wheelY):
     return 0
 
 """
+Get the current location of all the wheels and puts them in an
+2d dict to be returned.
+Must be passed:
+    * The mars map 2d list
+"""
+def getWheelLoc(marsMap):
+    wheels = {
+        "x": {0:currentX - 1, 1:currentX - 1, 2:currentX - 1, 3:currentX + 1, 4:currentX + 1, 5:currentX + 1},
+        "y": {0:currentY - 1, 1:currentY, 2:currentY + 1, 3:currentY - 1, 4:currentY, 5:currentY + 1}
+    }
+
+    return wheels
+
+
+"""
+Checks if the rover is stuck and needs to ask for help.
+Must be passed:
+    * The mars map 2d list
+"""
+def stuckTester(marsMap):
+    print ("Checking...")
+    
+    wheels = getWheelLoc(marsMap)
+
+    if (mapCheck(marsMap, wheels['x'][0], wheels['y'][0]) == "rock" and mapCheck(marsMap, wheels['x'][2], wheels['y'][2]) == "rock"):
+        return True
+    return False
+
+"""
 Main control thread that manages rover movement. Uses
 the global vars currentX and currentY
+Must be passed:
+    * The mars map 2d list
 """
 def mainControl(marsMap):
     global control
@@ -58,6 +97,12 @@ def mainControl(marsMap):
         lock.acquire()
 
         print ("Rover locaton X:",currentX,"Y:",currentY)
+
+        if (stuckTester(marsMap) == True):
+            print ("Rover is stuck awaiting help...")
+            if (input("What should I do:") == "stop"):
+                print ("Stopping...")
+                sys.exit()
         
         if (direction == 0):
             if currentX < 8:
@@ -80,13 +125,16 @@ def mainControl(marsMap):
 
 """
 Wheel positions:
-1-4
-2*5
-3-6
+0-3
+1*4
+2-5
 CurrentX & currentY are the center of the rover.
 [0][0] is top left not botton left!
-Must be passed the map, number of the wheel and the 
-location of the wheel in relation center of the rover.
+Must be passed:
+    * The mars map 2d list
+    * Number of the wheel.
+    * Modification value for X coordinate
+    * Modification value for Y coordinate
 """
 def wheel1(marsMap,num,modX,modY):
     global control
@@ -134,7 +182,9 @@ def wheel1(marsMap,num,modX,modY):
 
 
 """
-menu for testing each wheel (not currently implemented)
+Menu for testing each wheel (not currently implemented)
+Must be passed:
+    * The mars map 2d list 
 """
 def menu(marsMap):
     global control
@@ -165,12 +215,12 @@ for i in marsMap:
     print (i)
 
 t1 = Thread(target=mainControl,args=(marsMap,))
-t2 = Thread(target=wheel1,args=(marsMap,1,-1,-1,)) #wheel1
-t3 = Thread(target=wheel1,args=(marsMap,2,-1,0,)) #wheel2
-t4 = Thread(target=wheel1,args=(marsMap,3,-1,1,)) #wheel3
-t5 = Thread(target=wheel1,args=(marsMap,4,1,-1,)) #wheel4
-t6 = Thread(target=wheel1,args=(marsMap,5,1,0,)) #wheel5
-t7 = Thread(target=wheel1,args=(marsMap,6,1,1,)) #wheel6
+t2 = Thread(target=wheel1,args=(marsMap,0,-1,-1,)) #wheel1
+t3 = Thread(target=wheel1,args=(marsMap,1,-1,0,)) #wheel2
+t4 = Thread(target=wheel1,args=(marsMap,2,-1,1,)) #wheel3
+t5 = Thread(target=wheel1,args=(marsMap,3,1,-1,)) #wheel4
+t6 = Thread(target=wheel1,args=(marsMap,4,1,0,)) #wheel5
+t7 = Thread(target=wheel1,args=(marsMap,5,1,1,)) #wheel6
 t8 = Thread(target=menu,args=(marsMap,))
 
 t1.start()
@@ -183,7 +233,8 @@ t7.start()
 
 
 
-"""def wheel2(marsMap):
+"""
+def wheel2(marsMap):
     global control
     while True:
         lock.acquire()
