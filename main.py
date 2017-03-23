@@ -109,15 +109,23 @@ def mainControl(marsMap):
             print ("Rover is stuck awaiting help...")
             if stuckTester(marsMap) = "blocked by rocks":
                 print ("Rover problem:", stuckTester(marsMap))
+                answer = input("What should I do:")
+                if (answer == "stop"):
+                    print("Stopping...")
+                    exit()
             elif stuckTester(marsMap) = "stuck in hole":
                 print ("Rover problem:", stuckTester(marsMap))
+                answer = input("What should I do:")
+                if (answer == "stop"):
+                    print("Stopping...")
+                    exit()
             elif stuckTester(marsMap) = "stuck in sand":
                 print ("Rover problem:", stuckTester(marsMap))
-            if (input("What should I do:") == "stop"):
-                print ("Stopping...")
-                exit()
+                answer = input("What should I do:")
+                if (answer == "stop"):
+                    print ("Stopping...")
+                    exit()
 
-        
         if (direction == 0):
             if currentX < 8:
                 currentX += 1
@@ -227,7 +235,7 @@ def menu(marsMap):
     elif (answer == 4):
         control = 4
     elif (answer == 5):
-        raise SystemExit()
+        raise exit()
     else:
         print ("Please enter a valid entry (a,b,c,d)")
     control = 0
