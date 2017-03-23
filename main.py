@@ -166,26 +166,26 @@ def wheel1(marsMap,num,modX,modY):
             wheelTractn = 1
             wheelTorque = 1
             print ("Raising wheel:",num)
-            logging.info("Raising wheel:"+str(num))
+            logging.info("-- Raising wheel:"+str(num))
         elif (mapResult == "hole"):
             wheelLifted = 0
             wheelTractn = 0
             wheelTorque = 0
             print ("Stopping wheel:",num,)
-            logging.info("Stopping wheel:"+str(num))
+            logging.info("-- Stopping wheel:"+str(num))
         elif (mapResult == "sand"):
             wheelLifted = 0
             wheelTractn = 1
             wheelTorque = 0
             print ("Lowering torque wheel:",num)
-            logging.info("Lowering torque wheel:"+str(num))
+            logging.info("-- Lowering torque wheel:"+str(num))
 
         elif (mapResult == "water"):
             wheelLifted = 1 
             wheelTractn = 0
             wheelTorque = 0
             print ("Raising and stopping wheel:",num)
-            logging.info("Raising and stropping wheel:"+str(num))
+            logging.info("-- Raising and stropping wheel:"+str(num))
 
 
         lock.notifyAll()
