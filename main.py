@@ -1,6 +1,7 @@
 import threading
 import random
 import sys
+import logging
 from threading import Lock
 from threading import Thread
 from time import sleep
@@ -8,6 +9,8 @@ lock = threading.Condition() #thread condition var
 control = 0 #global control value
 currentX = 1 #global for X position of the rover
 currentY = 1 #global for Y position of the rover
+logging.basicConfig(filename='robot.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
+
 
 """
 Makes the map that the rover moves around, it is a 2 dimentional list (Matrix).
@@ -138,6 +141,9 @@ Must be passed:
 """
 def wheel1(marsMap,num,modX,modY):
     global control
+
+    file = open ("robot.txt","w")
+
     wheelLifted = 0 #represents if the wheel is lifted or not. 0 = on the ground, 1 = raised off the ground (used when over a rock)
     wheelTractn = 0 #represents if the wheel should spin or not. 0 = no spin, 1 = spin (used when over a hole)
     wheelTorque = 0 #represents if the wheel needs low or high torque. 0 = low torque, 1 = high torque (used when on sand)
@@ -160,21 +166,27 @@ def wheel1(marsMap,num,modX,modY):
             wheelTractn = 1
             wheelTorque = 1
             print ("Raising wheel:",num)
+            logging.info("Raising wheel:"+str(num))
         elif (mapResult == "hole"):
             wheelLifted = 0
             wheelTractn = 0
             wheelTorque = 0
             print ("Stopping wheel:",num,)
+            logging.info("Stopping wheel:"+str(num))
         elif (mapResult == "sand"):
             wheelLifted = 0
             wheelTractn = 1
             wheelTorque = 0
-            print ("Lowing torque wheel:",num)
+            print ("Lowering torque wheel:",num)
+            logging.info("Lowering torque wheel:"+str(num))
+
         elif (mapResult == "water"):
             wheelLifted = 1 
             wheelTractn = 0
             wheelTorque = 0
             print ("Raising and stopping wheel:",num)
+            logging.info("Raising and stropping wheel:"+str(num))
+
 
         lock.notifyAll()
         lock.release()
