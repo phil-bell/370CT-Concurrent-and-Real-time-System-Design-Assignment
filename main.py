@@ -9,7 +9,7 @@ lock = threading.Condition() #thread condition var
 control = 0 #global control value
 currentX = 1 #global for X position of the rover
 currentY = 1 #global for Y position of the rover
-logging.basicConfig(filename='robot.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
+logging.basicConfig(filename='rover.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
 
 
 """
@@ -82,7 +82,11 @@ def stuckTester(marsMap):
     wheels = getWheelLoc(marsMap)
 
     if (mapCheck(marsMap, wheels['x'][0], wheels['y'][0]) == "rock" and mapCheck(marsMap, wheels['x'][2], wheels['y'][2]) == "rock"):
-        return True
+        return "blocked by rocks"
+    elif (mapCheck(marsMap, wheels['x'][0], wheels['y'][0]) == "hole" and mapCheck(marsMap, wheels['x'][2], wheels['y'][2]) == "hole"):
+        return "stuck in hole"
+    elif (mapCheck(marsMap, wheels['x'][0], wheels['y'][0]) == "sand" and mapCheck(marsMap, wheels['x'][2], wheels['y'][2]) == "sand"):
+        return "stuck in sand"
     return False
 
 """
@@ -101,11 +105,18 @@ def mainControl(marsMap):
 
         print ("Rover locaton X:",currentX,"Y:",currentY)
 
-        if (stuckTester(marsMap) == True):
+        if (stuckTester(marsMap) != False):
             print ("Rover is stuck awaiting help...")
+            if stuckTester(marsMap) = "blocked by rocks":
+                print ("Rover problem:", stuckTester(marsMap))
+            elif stuckTester(marsMap) = "stuck in hole":
+                print ("Rover problem:", stuckTester(marsMap))
+            elif stuckTester(marsMap) = "stuck in sand":
+                print ("Rover problem:", stuckTester(marsMap))
             if (input("What should I do:") == "stop"):
                 print ("Stopping...")
-                sys.exit()
+                exit()
+
         
         if (direction == 0):
             if currentX < 8:
@@ -142,7 +153,7 @@ Must be passed:
 def wheel1(marsMap,num,modX,modY):
     global control
 
-    file = open ("robot.txt","w")
+    file = open ("rover.txt","w")
 
     wheelLifted = 0 #represents if the wheel is lifted or not. 0 = on the ground, 1 = raised off the ground (used when over a rock)
     wheelTractn = 0 #represents if the wheel should spin or not. 0 = no spin, 1 = spin (used when over a hole)
