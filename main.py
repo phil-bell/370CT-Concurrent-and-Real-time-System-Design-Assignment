@@ -9,7 +9,7 @@ lock = threading.Condition() #thread condition var
 control = 0 #global control value
 currentX = 1 #global for X position of the rover
 currentY = 1 #global for Y position of the rover
-logging.basicConfig(filename='rover.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
+logging.basicConfig(filename='rover.log',format='%(asctime)s %(levelname)s %(message)s', level=logging.DEBUG)
 
 
 """
@@ -77,6 +77,7 @@ Must be passed:
     * The mars map 2d list
 """
 def stuckTester(marsMap):
+    logging.info("-- Checking if rover is stuck")
     print ("Checking...")
     
     wheels = getWheelLoc(marsMap)
@@ -104,28 +105,53 @@ def mainControl(marsMap):
         lock.acquire()
 
         print ("Rover locaton X:",currentX,"Y:",currentY)
+        logging.info("-- Rover locaton X:"+str(currentX)+"Y:"+str(currentY))
 
         if (stuckTester(marsMap) != False):
+            logging.warning(" -- Rover is stuck awaiting help")
             print ("Rover is stuck awaiting help...")
-            if stuckTester(marsMap) = "blocked by rocks":
+            if stuckTester(marsMap) == "blocked by rocks":
                 print ("Rover problem:", stuckTester(marsMap))
-                answer = input("What should I do:")
+                answer = input("What should I do: ")
                 if (answer == "stop"):
+                    logging.info("-- User has told rover to stop")
+                    logging.info("-- Stopping")
                     print("Stopping...")
                     exit()
-            elif stuckTester(marsMap) = "stuck in hole":
+                elif (answer == "move"):
+                    logging.info("-- User has told rover to adjust route")
+                    print ("Adjusting route")
+                    currentY += 1
+            elif stuckTester(marsMap) == "stuck in hole":
                 print ("Rover problem:", stuckTester(marsMap))
-                answer = input("What should I do:")
+                answer = input("What should I do: ")
                 if (answer == "stop"):
+                    logging.info("-- User has told rover to stop")
+                    logging.info("-- Stopping")
                     print("Stopping...")
                     exit()
-            elif stuckTester(marsMap) = "stuck in sand":
+                elif (answer == "move"):
+                    logging.info("-- User has told rover to adjust route")
+                    print("Adjusting route")
+                    currentY += 1
+            elif stuckTester(marsMap) == "stuck in sand":
                 print ("Rover problem:", stuckTester(marsMap))
-                answer = input("What should I do:")
+                answer = input("What should I do: ")
                 if (answer == "stop"):
+                    logging.info("-- User has told rover to stop")
+                    logging.info("-- Stopping")
                     print ("Stopping...")
                     exit()
+                elif (answer == "move"):
+                    logging.info("-- User has told rover to adjust route")
+                    print("Adjusting route")
+                    currentY += 1
 
+        if (currentX == 8 and currentY == 8):
+            logging.info("-- Finished route")
+            logging.info("-- Stopping")
+            print("Finshed route, Stopping...")
+            exit()
         if (direction == 0):
             if currentX < 8:
                 currentX += 1
@@ -158,7 +184,7 @@ Must be passed:
     * Modification value for X coordinate
     * Modification value for Y coordinate
 """
-def wheel1(marsMap,num,modX,modY):
+def wheel(marsMap,num,modX,modY):
     global control
 
     file = open ("rover.txt","w")
@@ -246,12 +272,12 @@ for i in marsMap:
     print (i)
 
 t1 = Thread(target=mainControl,args=(marsMap,))
-t2 = Thread(target=wheel1,args=(marsMap,0,-1,-1,)) #wheel1
-t3 = Thread(target=wheel1,args=(marsMap,1,-1,0,)) #wheel2
-t4 = Thread(target=wheel1,args=(marsMap,2,-1,1,)) #wheel3
-t5 = Thread(target=wheel1,args=(marsMap,3,1,-1,)) #wheel4
-t6 = Thread(target=wheel1,args=(marsMap,4,1,0,)) #wheel5
-t7 = Thread(target=wheel1,args=(marsMap,5,1,1,)) #wheel6
+t2 = Thread(target=wheel,args=(marsMap,0,-1,-1,)) #wheel
+t3 = Thread(target=wheel,args=(marsMap,1,-1,0,)) #wheel2
+t4 = Thread(target=wheel,args=(marsMap,2,-1,1,)) #wheel3
+t5 = Thread(target=wheel,args=(marsMap,3,1,-1,)) #wheel4
+t6 = Thread(target=wheel,args=(marsMap,4,1,0,)) #wheel5
+t7 = Thread(target=wheel,args=(marsMap,5,1,1,)) #wheel6
 t8 = Thread(target=menu,args=(marsMap,))
 
 t1.start()
@@ -261,78 +287,3 @@ t4.start()
 t5.start()
 t6.start()
 t7.start()
-
-
-
-"""
-def wheel2(marsMap):
-    global control
-    while True:
-        lock.acquire()
-
-        wheelX = currentX-1
-        wheelY = currentY
-
-        print("Wheel 2:",mapCheck(marsMap,wheelX,wheelY))
-
-        lock.notifyAll()
-        lock.release()
-        sleep(0.5)
-
-def wheel3(marsMap):
-    global control
-    while True:
-        lock.acquire()
-
-        wheelX = currentX-1
-        wheelY = currentY+1 
-
-        print("Wheel 3:",mapCheck(marsMap,wheelX,wheelY))
-
-        lock.notifyAll()
-        lock.release()
-        sleep(0.5)
-
-def wheel4(marsMap):
-    global control
-    while True:
-        lock.acquire()
-
-        wheelX = currentX+1
-        wheelY = currentY-1 
-
-        print("Wheel 4:",mapCheck(marsMap,wheelX,wheelY))
-
-        lock.notifyAll()
-        lock.release()
-        sleep(0.5)
-  
-
-def wheel5(marsMap):
-    global control
-    while True:
-        lock.acquire()
-
-        wheelX = currentX+1
-        wheelY = currentY
-
-        print("Wheel 5:",mapCheck(marsMap,wheelX,wheelY))
-
-        lock.notifyAll()
-        lock.release()
-        sleep(0.5)
-
-def wheel6(marsMap):
-    global control
-    while True:
-        lock.acquire()
-
-        wheelX = currentX+1
-        wheelY = currentY+1 
-
-        print("Wheel 6:",mapCheck(marsMap,wheelX,wheelY))
-
-        lock.notifyAll()
-        lock.release()
-        sleep(0.5)
-"""

@@ -1,166 +1,194 @@
-2017-03-23 12:41:49,492 -- Stopping wheel:1
-2017-03-23 12:41:50,494 -- Stopping wheel:1
-2017-03-23 12:41:55,500 -- Raising wheel:4
-2017-03-23 12:41:55,501 -- Raising wheel:5
-2017-03-23 12:41:56,502 -- Raising wheel:4
-2017-03-23 12:41:56,503 -- Raising wheel:5
-2017-03-23 12:41:59,505 -- Raising wheel:1
-2017-03-23 12:41:59,505 -- Raising wheel:2
-2017-03-23 12:42:00,505 -- Raising wheel:2
-2017-03-23 12:42:00,505 -- Raising wheel:1
-2017-03-23 12:42:01,506 -- Raising wheel:0
-2017-03-23 12:42:01,506 -- Stopping wheel:5
-2017-03-23 12:42:01,507 -- Raising wheel:1
-2017-03-23 12:42:02,507 -- Stopping wheel:5
-2017-03-23 12:42:02,507 -- Raising wheel:0
-2017-03-23 12:42:02,508 -- Raising wheel:1
-2017-03-23 12:42:05,511 -- Stopping wheel:2
-2017-03-23 12:42:05,512 -- Raising wheel:4
-2017-03-23 12:42:05,514 -- Raising wheel:3
-2017-03-23 12:42:06,512 -- Stopping wheel:2
-2017-03-23 12:42:06,514 -- Raising wheel:3
-2017-03-23 12:42:06,514 -- Raising wheel:4
-2017-03-23 12:42:07,513 -- Raising and stropping wheel:2
-2017-03-23 12:42:08,514 -- Raising and stropping wheel:2
-2017-03-23 12:42:09,515 -- Raising wheel:2
-2017-03-23 12:42:09,516 -- Stopping wheel:5
-2017-03-23 12:42:10,516 -- Raising wheel:2
-2017-03-23 12:42:10,517 -- Stopping wheel:5
-2017-03-23 12:42:11,515 -- Stopping wheel:0
-2017-03-23 12:42:11,518 -- Raising and stropping wheel:5
-2017-03-23 12:42:12,516 -- Stopping wheel:0
-2017-03-23 12:42:12,519 -- Raising and stropping wheel:5
-2017-03-23 12:42:13,520 -- Raising wheel:5
-2017-03-23 12:42:14,520 -- Raising wheel:5
-2017-03-23 12:42:15,519 -- Stopping wheel:3
-2017-03-23 12:42:16,521 -- Stopping wheel:3
-2017-03-23 12:42:17,522 -- Raising wheel:2
-2017-03-23 12:42:17,523 -- Stopping wheel:5
-2017-03-23 12:42:18,524 -- Stopping wheel:5
-2017-03-23 12:42:18,524 -- Raising wheel:2
-2017-03-23 12:42:19,524 -- Raising wheel:4
-2017-03-23 12:42:20,525 -- Raising wheel:4
-2017-03-23 12:42:21,526 -- Raising and stropping wheel:4
-2017-03-23 12:42:21,527 -- Stopping wheel:2
-2017-03-23 12:42:22,528 -- Raising and stropping wheel:4
-2017-03-23 12:42:22,528 -- Stopping wheel:2
-2017-03-23 12:42:23,525 -- Raising wheel:1
-2017-03-23 12:42:23,529 -- Stopping wheel:4
-2017-03-23 12:42:24,526 -- Raising wheel:1
-2017-03-23 12:42:24,530 -- Stopping wheel:4
-2017-03-23 12:42:25,527 -- Raising and stropping wheel:1
-2017-03-23 12:42:25,528 -- Raising wheel:5
-2017-03-23 12:42:26,529 -- Raising and stropping wheel:1
-2017-03-23 12:42:26,530 -- Raising wheel:5
-2017-03-23 12:42:27,527 -- Raising wheel:3
-2017-03-23 12:42:27,530 -- Stopping wheel:1
-2017-03-23 12:42:28,529 -- Raising wheel:3
-2017-03-23 12:42:28,531 -- Stopping wheel:1
-2017-03-23 12:42:29,533 -- Raising wheel:2
-2017-03-23 12:42:30,534 -- Raising wheel:2
-2017-03-23 12:42:31,528 -- Raising wheel:0
-2017-03-23 12:42:31,533 -- Stopping wheel:5
-2017-03-23 12:42:31,534 -- Stopping wheel:4
-2017-03-23 12:42:32,530 -- Raising wheel:0
-2017-03-23 12:42:32,534 -- Stopping wheel:5
-2017-03-23 12:42:32,536 -- Stopping wheel:4
-2017-03-23 12:42:33,532 -- Stopping wheel:3
-2017-03-23 12:42:33,537 -- Stopping wheel:4
-2017-03-23 12:42:34,533 -- Stopping wheel:3
-2017-03-23 12:42:34,538 -- Stopping wheel:4
-2017-03-23 12:42:35,536 -- Raising wheel:1
-2017-03-23 12:42:35,536 -- Raising wheel:5
-2017-03-23 12:42:35,540 -- Raising wheel:2
-2017-03-23 12:42:36,537 -- Raising wheel:1
-2017-03-23 12:42:36,538 -- Raising wheel:5
-2017-03-23 12:42:36,542 -- Raising wheel:2
-2017-03-23 12:42:37,534 -- Stopping wheel:0
-2017-03-23 12:42:38,536 -- Stopping wheel:0
-2017-03-23 12:42:39,537 -- Raising and stropping wheel:0
-2017-03-23 12:42:39,539 -- Raising wheel:5
-2017-03-23 12:42:39,541 -- Raising wheel:4
-2017-03-23 12:42:39,544 -- Stopping wheel:2
-2017-03-23 12:42:40,539 -- Raising and stropping wheel:0
-2017-03-23 12:42:40,541 -- Raising wheel:5
-2017-03-23 12:42:40,542 -- Raising wheel:4
-2017-03-23 12:42:40,546 -- Stopping wheel:2
-2017-03-23 12:42:41,540 -- Raising wheel:0
-2017-03-23 12:42:41,541 -- Stopping wheel:3
-2017-03-23 12:42:42,542 -- Raising wheel:0
-2017-03-23 12:42:42,543 -- Stopping wheel:3
-2017-03-23 12:42:43,541 -- Stopping wheel:1
-2017-03-23 12:42:43,543 -- Stopping wheel:5
-2017-03-23 12:42:43,544 -- Raising and stropping wheel:3
-2017-03-23 12:42:44,542 -- Stopping wheel:1
-2017-03-23 12:42:44,544 -- Stopping wheel:5
-2017-03-23 12:42:44,545 -- Raising and stropping wheel:3
-2017-03-23 12:42:45,547 -- Raising wheel:3
-2017-03-23 12:42:46,548 -- Raising wheel:3
-2017-03-23 12:42:47,545 -- Raising wheel:1
-2017-03-23 12:42:47,550 -- Stopping wheel:4
-2017-03-23 12:42:48,547 -- Raising wheel:1
-2017-03-23 12:42:48,551 -- Stopping wheel:4
-2017-03-23 12:42:49,550 -- Stopping wheel:3
-2017-03-23 12:42:49,552 -- Raising wheel:0
-2017-03-23 12:42:50,551 -- Stopping wheel:3
-2017-03-23 12:42:50,554 -- Raising wheel:0
-2017-03-23 12:42:53,556 -- Stopping wheel:0
-2017-03-23 12:42:53,557 -- Stopping wheel:4
-2017-03-23 12:42:54,557 -- Stopping wheel:0
-2017-03-23 12:42:54,558 -- Stopping wheel:4
-2017-03-23 12:42:57,551 -- Stopping wheel:1
-2017-03-23 12:42:57,558 -- Raising wheel:3
-2017-03-23 12:42:57,561 -- Raising wheel:4
-2017-03-23 12:42:58,552 -- Stopping wheel:1
-2017-03-23 12:42:58,559 -- Raising wheel:3
-2017-03-23 12:42:58,562 -- Raising wheel:4
-2017-03-23 12:43:01,554 -- Raising wheel:1
-2017-03-23 12:43:01,561 -- Raising wheel:0
-2017-03-23 12:43:01,564 -- Raising wheel:4
-2017-03-23 12:43:02,556 -- Raising wheel:1
-2017-03-23 12:43:02,563 -- Raising wheel:0
-2017-03-23 12:43:02,566 -- Raising wheel:4
-2017-03-23 12:43:03,564 -- Stopping wheel:3
-2017-03-23 12:43:04,566 -- Stopping wheel:3
-2017-03-23 12:43:07,566 -- Raising wheel:0
-2017-03-23 12:43:07,569 -- Raising wheel:3
-2017-03-23 12:43:08,568 -- Raising wheel:0
-2017-03-23 12:43:08,570 -- Raising wheel:3
-2017-03-23 12:43:09,566 -- Stopping wheel:2
-2017-03-23 12:43:10,566 -- Stopping wheel:2
-2017-03-23 12:43:11,570 -- Stopping wheel:0
-2017-03-23 12:43:11,573 -- Raising wheel:3
-2017-03-23 12:43:12,571 -- Stopping wheel:0
-2017-03-23 12:43:12,574 -- Raising wheel:3
-2017-03-23 12:43:13,563 -- Stopping wheel:5
-2017-03-23 12:43:14,565 -- Stopping wheel:5
-2017-03-23 12:43:15,570 -- Raising wheel:2
-2017-03-23 12:43:15,576 -- Stopping wheel:3
-2017-03-23 12:43:16,571 -- Raising wheel:2
-2017-03-23 12:43:16,578 -- Stopping wheel:3
-2017-03-23 12:43:19,569 -- Raising wheel:5
-2017-03-23 12:43:20,570 -- Raising wheel:5
-2017-03-23 12:43:21,580 -- Raising wheel:4
-2017-03-23 12:43:22,581 -- Raising wheel:4
-2017-03-23 12:43:25,573 -- Raising wheel:1
-2017-03-23 12:43:26,584 -- Raising wheel:1
-2017-03-23 12:43:27,586 -- Stopping wheel:4
-2017-03-23 12:43:28,587 -- Stopping wheel:4
-2017-03-23 12:43:31,589 -- Stopping wheel:1
-2017-03-23 12:43:32,590 -- Stopping wheel:1
-2017-03-23 12:43:35,589 -- Stopping wheel:5
-2017-03-23 12:43:36,590 -- Stopping wheel:5
-2017-03-23 12:43:37,594 -- Raising wheel:2
-2017-03-23 12:43:37,595 -- Stopping wheel:4
-2017-03-23 12:43:38,596 -- Raising wheel:2
-2017-03-23 12:43:38,597 -- Stopping wheel:4
-2017-03-23 12:43:41,594 -- Raising wheel:5
-2017-03-23 12:43:41,600 -- Stopping wheel:0
-2017-03-23 12:43:42,595 -- Raising wheel:5
-2017-03-23 12:43:42,601 -- Stopping wheel:0
-2017-03-23 12:43:45,603 -- Stopping wheel:3
-2017-03-23 12:43:46,605 -- Stopping wheel:3
-2017-03-23 12:43:47,605 -- Raising wheel:0
-2017-03-23 12:43:48,606 -- Raising wheel:0
-2017-03-23 12:43:51,610 -- Raising wheel:3
-2017-03-23 12:43:52,610 -- Raising wheel:3
+2017-03-27 13:52:15,119 INFO -- Rover locaton X:1Y:1
+2017-03-27 13:52:15,119 INFO -- Checking if rover is stuck
+2017-03-27 13:52:15,119 INFO -- Stopping wheel:4
+2017-03-27 13:52:15,119 INFO -- Stopping wheel:3
+2017-03-27 13:52:15,119 INFO -- Stopping wheel:5
+2017-03-27 13:52:16,131 INFO -- Stopping wheel:5
+2017-03-27 13:52:16,131 INFO -- Stopping wheel:3
+2017-03-27 13:52:16,131 INFO -- Stopping wheel:4
+2017-03-27 13:52:17,132 INFO -- Rover locaton X:2Y:1
+2017-03-27 13:52:17,132 INFO -- Checking if rover is stuck
+2017-03-27 13:52:19,134 INFO -- Rover locaton X:3Y:1
+2017-03-27 13:52:19,134 INFO -- Checking if rover is stuck
+2017-03-27 13:52:19,150 INFO -- Stopping wheel:1
+2017-03-27 13:52:19,150 INFO -- Stopping wheel:0
+2017-03-27 13:52:19,150 INFO -- Raising wheel:3
+2017-03-27 13:52:19,150 INFO -- Stopping wheel:2
+2017-03-27 13:52:20,167 INFO -- Stopping wheel:2
+2017-03-27 13:52:20,167 INFO -- Raising wheel:3
+2017-03-27 13:52:20,167 INFO -- Stopping wheel:0
+2017-03-27 13:52:20,167 INFO -- Stopping wheel:1
+2017-03-27 13:52:21,137 INFO -- Rover locaton X:4Y:1
+2017-03-27 13:52:21,137 INFO -- Checking if rover is stuck
+2017-03-27 13:52:21,137 WARNING  -- Rover is stuck awaiting help
+2017-03-27 13:52:21,137 INFO -- Checking if rover is stuck
+2017-03-27 13:52:21,137 INFO -- Checking if rover is stuck
+2017-03-27 13:52:21,137 INFO -- Checking if rover is stuck
+2017-03-27 13:52:53,241 INFO -- User has told rover to adjust route
+2017-03-27 13:52:55,259 INFO -- Rover locaton X:5Y:2
+2017-03-27 13:52:55,259 INFO -- Checking if rover is stuck
+2017-03-27 13:52:56,260 INFO -- Raising wheel:4
+2017-03-27 13:52:57,261 INFO -- Raising wheel:4
+2017-03-27 13:52:57,261 INFO -- Rover locaton X:6Y:2
+2017-03-27 13:52:57,261 INFO -- Checking if rover is stuck
+2017-03-27 13:52:58,278 INFO -- Raising wheel:5
+2017-03-27 13:52:58,278 INFO -- Raising wheel:3
+2017-03-27 13:52:59,279 INFO -- Rover locaton X:7Y:2
+2017-03-27 13:52:59,279 INFO -- Checking if rover is stuck
+2017-03-27 13:53:00,265 INFO -- Raising wheel:1
+2017-03-27 13:53:01,281 INFO -- Rover locaton X:8Y:2
+2017-03-27 13:53:01,281 INFO -- Checking if rover is stuck
+2017-03-27 13:53:02,282 INFO -- Raising wheel:0
+2017-03-27 13:53:03,283 INFO -- Raising wheel:0
+2017-03-27 13:53:03,283 INFO -- Rover locaton X:8Y:3
+2017-03-27 13:53:03,283 INFO -- Checking if rover is stuck
+2017-03-27 13:53:03,299 INFO -- Raising wheel:4
+2017-03-27 13:53:04,316 INFO -- Raising wheel:4
+2017-03-27 13:53:05,301 INFO -- Rover locaton X:7Y:3
+2017-03-27 13:53:05,301 INFO -- Checking if rover is stuck
+2017-03-27 13:53:06,286 INFO -- Stopping wheel:2
+2017-03-27 13:53:06,302 INFO -- Raising wheel:3
+2017-03-27 13:53:07,303 INFO -- Stopping wheel:2
+2017-03-27 13:53:07,319 INFO -- Rover locaton X:6Y:3
+2017-03-27 13:53:07,319 INFO -- Checking if rover is stuck
+2017-03-27 13:53:08,320 INFO -- Stopping wheel:2
+2017-03-27 13:53:09,322 INFO -- Stopping wheel:2
+2017-03-27 13:53:09,322 INFO -- Rover locaton X:5Y:3
+2017-03-27 13:53:09,327 INFO -- Checking if rover is stuck
+2017-03-27 13:53:09,340 INFO -- Stopping wheel:0
+2017-03-27 13:53:10,308 INFO -- Stopping wheel:5
+2017-03-27 13:53:10,324 INFO -- Raising wheel:2
+2017-03-27 13:53:10,343 INFO -- Stopping wheel:0
+2017-03-27 13:53:11,309 INFO -- Stopping wheel:5
+2017-03-27 13:53:11,325 INFO -- Raising wheel:2
+2017-03-27 13:53:11,330 INFO -- Rover locaton X:4Y:3
+2017-03-27 13:53:11,330 INFO -- Checking if rover is stuck
+2017-03-27 13:53:12,318 INFO -- Stopping wheel:5
+2017-03-27 13:53:13,320 INFO -- Stopping wheel:5
+2017-03-27 13:53:13,333 INFO -- Rover locaton X:3Y:3
+2017-03-27 13:53:13,333 INFO -- Checking if rover is stuck
+2017-03-27 13:53:13,364 INFO -- Stopping wheel:3
+2017-03-27 13:53:14,324 INFO -- Raising wheel:5
+2017-03-27 13:53:14,370 INFO -- Stopping wheel:3
+2017-03-27 13:53:15,327 INFO -- Raising wheel:5
+2017-03-27 13:53:15,335 INFO -- Rover locaton X:2Y:3
+2017-03-27 13:53:15,335 INFO -- Checking if rover is stuck
+2017-03-27 13:53:17,338 INFO -- Rover locaton X:1Y:3
+2017-03-27 13:53:17,339 INFO -- Checking if rover is stuck
+2017-03-27 13:53:19,342 INFO -- Rover locaton X:1Y:4
+2017-03-27 13:53:19,342 INFO -- Checking if rover is stuck
+2017-03-27 13:53:19,380 INFO -- Raising wheel:4
+2017-03-27 13:53:20,382 INFO -- Raising wheel:4
+2017-03-27 13:53:21,344 INFO -- Rover locaton X:2Y:4
+2017-03-27 13:53:21,344 INFO -- Checking if rover is stuck
+2017-03-27 13:53:21,348 INFO -- Raising wheel:5
+2017-03-27 13:53:21,384 INFO -- Stopping wheel:4
+2017-03-27 13:53:22,354 INFO -- Raising wheel:5
+2017-03-27 13:53:22,386 INFO -- Stopping wheel:4
+2017-03-27 13:53:23,352 INFO -- Rover locaton X:3Y:4
+2017-03-27 13:53:23,352 INFO -- Checking if rover is stuck
+2017-03-27 13:53:23,388 INFO -- Raising wheel:1
+2017-03-27 13:53:23,388 INFO -- Stopping wheel:4
+2017-03-27 13:53:24,389 INFO -- Raising wheel:1
+2017-03-27 13:53:24,393 INFO -- Stopping wheel:4
+2017-03-27 13:53:25,355 INFO -- Rover locaton X:4Y:4
+2017-03-27 13:53:25,355 INFO -- Checking if rover is stuck
+2017-03-27 13:53:25,370 INFO -- Raising wheel:2
+2017-03-27 13:53:25,391 INFO -- Stopping wheel:1
+2017-03-27 13:53:26,371 INFO -- Raising wheel:2
+2017-03-27 13:53:26,392 INFO -- Stopping wheel:1
+2017-03-27 13:53:27,358 INFO -- Rover locaton X:5Y:4
+2017-03-27 13:53:27,358 INFO -- Checking if rover is stuck
+2017-03-27 13:53:27,394 INFO -- Stopping wheel:1
+2017-03-27 13:53:28,395 INFO -- Stopping wheel:1
+2017-03-27 13:53:29,363 INFO -- Rover locaton X:6Y:4
+2017-03-27 13:53:29,363 INFO -- Checking if rover is stuck
+2017-03-27 13:53:29,411 INFO -- Raising wheel:3
+2017-03-27 13:53:30,413 INFO -- Raising wheel:3
+2017-03-27 13:53:31,368 INFO -- Rover locaton X:7Y:4
+2017-03-27 13:53:31,368 INFO -- Checking if rover is stuck
+2017-03-27 13:53:33,374 INFO -- Rover locaton X:8Y:4
+2017-03-27 13:53:33,374 INFO -- Checking if rover is stuck
+2017-03-27 13:53:35,379 INFO -- Rover locaton X:8Y:5
+2017-03-27 13:53:35,379 INFO -- Checking if rover is stuck
+2017-03-27 13:53:35,393 INFO -- Raising wheel:2
+2017-03-27 13:53:36,397 INFO -- Raising wheel:2
+2017-03-27 13:53:37,384 INFO -- Rover locaton X:7Y:5
+2017-03-27 13:53:37,384 INFO -- Checking if rover is stuck
+2017-03-27 13:53:37,424 INFO -- Stopping wheel:0
+2017-03-27 13:53:38,433 INFO -- Stopping wheel:0
+2017-03-27 13:53:39,390 INFO -- Rover locaton X:6Y:5
+2017-03-27 13:53:39,390 INFO -- Checking if rover is stuck
+2017-03-27 13:53:39,399 INFO -- Raising wheel:5
+2017-03-27 13:53:39,414 INFO -- Raising and stropping wheel:2
+2017-03-27 13:53:39,422 INFO -- Raising wheel:1
+2017-03-27 13:53:39,439 INFO -- Stopping wheel:0
+2017-03-27 13:53:40,406 INFO -- Raising wheel:5
+2017-03-27 13:53:40,427 INFO -- Raising and stropping wheel:2
+2017-03-27 13:53:40,427 INFO -- Raising wheel:1
+2017-03-27 13:53:40,443 INFO -- Stopping wheel:0
+2017-03-27 13:53:41,400 INFO -- Rover locaton X:5Y:5
+2017-03-27 13:53:41,400 INFO -- Checking if rover is stuck
+2017-03-27 13:53:41,445 INFO -- Stopping wheel:3
+2017-03-27 13:53:41,449 INFO -- Raising wheel:0
+2017-03-27 13:53:42,461 INFO -- Raising wheel:0
+2017-03-27 13:53:42,461 INFO -- Stopping wheel:3
+2017-03-27 13:53:43,406 INFO -- Rover locaton X:4Y:5
+2017-03-27 13:53:43,407 INFO -- Checking if rover is stuck
+2017-03-27 13:53:43,413 INFO -- Raising and stropping wheel:5
+2017-03-27 13:53:43,466 INFO -- Raising wheel:4
+2017-03-27 13:53:43,474 INFO -- Stopping wheel:3
+2017-03-27 13:53:44,431 INFO -- Raising and stropping wheel:5
+2017-03-27 13:53:44,478 INFO -- Stopping wheel:3
+2017-03-27 13:53:44,478 INFO -- Raising wheel:4
+2017-03-27 13:53:45,410 INFO -- Rover locaton X:3Y:5
+2017-03-27 13:53:45,410 INFO -- Checking if rover is stuck
+2017-03-27 13:53:45,483 INFO -- Raising wheel:3
+2017-03-27 13:53:46,485 INFO -- Raising wheel:3
+2017-03-27 13:53:47,434 INFO -- Rover locaton X:2Y:5
+2017-03-27 13:53:47,434 INFO -- Checking if rover is stuck
+2017-03-27 13:53:49,441 INFO -- Rover locaton X:1Y:5
+2017-03-27 13:53:49,441 INFO -- Checking if rover is stuck
+2017-03-27 13:53:49,453 INFO -- Raising wheel:5
+2017-03-27 13:53:50,458 INFO -- Raising wheel:5
+2017-03-27 13:53:51,452 INFO -- Rover locaton X:1Y:6
+2017-03-27 13:53:51,452 INFO -- Checking if rover is stuck
+2017-03-27 13:53:53,455 INFO -- Rover locaton X:2Y:6
+2017-03-27 13:53:53,455 INFO -- Checking if rover is stuck
+2017-03-27 13:53:53,463 INFO -- Raising wheel:5
+2017-03-27 13:53:53,475 INFO -- Raising wheel:2
+2017-03-27 13:53:53,507 INFO -- Raising wheel:3
+2017-03-27 13:53:53,507 INFO -- Raising and stropping wheel:4
+2017-03-27 13:53:54,463 INFO -- Raising wheel:5
+2017-03-27 13:53:54,479 INFO -- Raising wheel:2
+2017-03-27 13:53:54,508 INFO -- Raising wheel:3
+2017-03-27 13:53:54,512 INFO -- Raising and stropping wheel:4
+2017-03-27 13:53:55,460 INFO -- Rover locaton X:3Y:6
+2017-03-27 13:53:55,460 INFO -- Checking if rover is stuck
+2017-03-27 13:53:57,467 INFO -- Rover locaton X:4Y:6
+2017-03-27 13:53:57,467 INFO -- Checking if rover is stuck
+2017-03-27 13:53:57,479 INFO -- Raising and stropping wheel:1
+2017-03-27 13:53:57,483 INFO -- Raising wheel:2
+2017-03-27 13:53:57,511 INFO -- Raising wheel:0
+2017-03-27 13:53:57,515 INFO -- Raising wheel:4
+2017-03-27 13:53:58,484 INFO -- Raising and stropping wheel:1
+2017-03-27 13:53:58,484 INFO -- Raising wheel:2
+2017-03-27 13:53:58,512 INFO -- Raising wheel:0
+2017-03-27 13:53:58,520 INFO -- Raising wheel:4
+2017-03-27 13:53:59,470 INFO -- Rover locaton X:5Y:6
+2017-03-27 13:53:59,470 INFO -- Checking if rover is stuck
+2017-03-27 13:53:59,474 WARNING  -- Rover is stuck awaiting help
+2017-03-27 13:53:59,478 INFO -- Checking if rover is stuck
+2017-03-27 13:53:59,478 INFO -- Checking if rover is stuck
+2017-03-27 13:54:28,869 INFO -- User has told rover to adjust route
+2017-03-27 13:54:30,887 INFO -- Rover locaton X:6Y:7
+2017-03-27 13:54:30,887 INFO -- Checking if rover is stuck
+2017-03-27 13:54:31,888 INFO -- Raising wheel:0
+2017-03-27 13:54:32,905 INFO -- Rover locaton X:7Y:7
+2017-03-27 13:54:32,905 INFO -- Checking if rover is stuck
+2017-03-27 13:54:34,923 INFO -- Rover locaton X:8Y:7
+2017-03-27 13:54:34,923 INFO -- Checking if rover is stuck
+2017-03-27 13:54:36,941 INFO -- Rover locaton X:8Y:8
+2017-03-27 13:54:36,941 INFO -- Checking if rover is stuck
+2017-03-27 13:54:36,941 INFO -- Finished route
+2017-03-27 13:54:36,941 INFO -- Stopping
