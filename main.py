@@ -64,8 +64,8 @@ Must be passed:
 """
 def getWheelLoc(marsMap):
     wheels = {
-        "x": {0:currentX - 1, 1:currentX - 1, 2:currentX - 1, 3:currentX + 1, 4:currentX + 1, 5:currentX + 1},
-        "y": {0:currentY - 1, 1:currentY, 2:currentY + 1, 3:currentY - 1, 4:currentY, 5:currentY + 1}
+        "x": {0:currentX + 1, 1:currentX, 2:currentX - 1, 3:currentX + 1, 4:currentX, 5:currentX -1},
+        "y": {0:currentY - 1, 1:currentY - 1, 2:currentY - 1, 3:currentY + 1, 4:currentY + 1, 5:currentY + 1}
     }
 
     return wheels
@@ -75,24 +75,48 @@ def getWheelLoc(marsMap):
 Checks if the rover is stuck and needs to ask for help.
 Must be passed:
     * The mars map 2d list
+    * North current front wheel
+    * South current front wheel
 """
-def stuckTester(marsMap):
+def stuckTester(marsMap,frontN,frontS):
     logging.info("-- Checking if rover is stuck")
     print ("Checking...")
     
     wheels = getWheelLoc(marsMap)
 
-    if (mapCheck(marsMap, wheels['x'][0], wheels['y'][0]) == "rock" and mapCheck(marsMap, wheels['x'][2], wheels['y'][2]) == "rock"):
+    if (mapCheck(marsMap, wheels['x'][frontN], wheels['y'][frontN]) == "rock" and mapCheck(marsMap, wheels['x'][frontS], wheels['y'][frontS]) == "rock"):
         return "blocked by rocks"
-    elif (mapCheck(marsMap, wheels['x'][0], wheels['y'][0]) == "hole" and mapCheck(marsMap, wheels['x'][2], wheels['y'][2]) == "hole"):
+    elif (mapCheck(marsMap, wheels['x'][frontN], wheels['y'][frontN]) == "hole" and mapCheck(marsMap, wheels['x'][frontS], wheels['y'][frontS]) == "hole"):
         return "stuck in hole"
-    elif (mapCheck(marsMap, wheels['x'][0], wheels['y'][0]) == "sand" and mapCheck(marsMap, wheels['x'][2], wheels['y'][2]) == "sand"):
+    elif (mapCheck(marsMap, wheels['x'][frontN], wheels['y'][frontN]) == "sand" and mapCheck(marsMap, wheels['x'][frontS], wheels['y'][frontS]) == "sand"):
         return "stuck in sand"
     return False
 
 """
+askForHelp stops threads and waits for the users
+to tell the rover what to do.
+Must be passed:
+    * What is returned by stuckTester() 
+"""
+def askForHelp(stuckVal):
+    print("Rover problem:", stuckVal)
+    logging.warning("Rover problem: " + stuckVal)
+    answer = input("What should I do: ")
+    if (answer == "stop"):
+        logging.info("-- User has told rover to stop")
+        logging.info("-- Stopping")
+        print("Stopping...")
+        exit()
+        return 0
+    elif (answer == "move"):
+        logging.info("-- User has told rover to adjust route")
+        print("Adjusting route")
+        return 1
+
+"""
 Main control thread that manages rover movement. Uses
-the global vars currentX and currentY
+the global vars currentX and currentY. It also handles
+the rover asking for help when stuck.
 Must be passed:
     * The mars map 2d list
 """
@@ -107,51 +131,30 @@ def mainControl(marsMap):
         print ("Rover locaton X:",currentX,"Y:",currentY)
         logging.info("-- Rover locaton X:"+str(currentX)+"Y:"+str(currentY))
 
-        if (stuckTester(marsMap) != False):
-            logging.warning(" -- Rover is stuck awaiting help")
-            print ("Rover is stuck awaiting help...")
-            if stuckTester(marsMap) == "blocked by rocks":
-                print ("Rover problem:", stuckTester(marsMap))
-                answer = input("What should I do: ")
-                if (answer == "stop"):
-                    logging.info("-- User has told rover to stop")
-                    logging.info("-- Stopping")
-                    print("Stopping...")
-                    exit()
-                elif (answer == "move"):
-                    logging.info("-- User has told rover to adjust route")
-                    print ("Adjusting route")
-                    currentY += 1
-            elif stuckTester(marsMap) == "stuck in hole":
-                print ("Rover problem:", stuckTester(marsMap))
-                answer = input("What should I do: ")
-                if (answer == "stop"):
-                    logging.info("-- User has told rover to stop")
-                    logging.info("-- Stopping")
-                    print("Stopping...")
-                    exit()
-                elif (answer == "move"):
-                    logging.info("-- User has told rover to adjust route")
-                    print("Adjusting route")
-                    currentY += 1
-            elif stuckTester(marsMap) == "stuck in sand":
-                print ("Rover problem:", stuckTester(marsMap))
-                answer = input("What should I do: ")
-                if (answer == "stop"):
-                    logging.info("-- User has told rover to stop")
-                    logging.info("-- Stopping")
-                    print ("Stopping...")
-                    exit()
-                elif (answer == "move"):
-                    logging.info("-- User has told rover to adjust route")
-                    print("Adjusting route")
-                    currentY += 1
+        # changes the 2 wheels that are the passed as the front of the rover depending on the direction it is going. 
+        if (direction == 1):
+            frontN = 2
+            frontS = 5
+        else:
+            frontN = 0
+            frontS = 3
+        
+        #gets the value of stuckTester
+        stuckVal = stuckTester(marsMap,frontN,frontS)
 
+        #if a problem is returned by 
+        if (stuckVal != False):
+            if currentY < 8:
+                currentY = currentY + askForHelp(stuckVal)
+
+        #check the rover hasnt reached the end of the grid
         if (currentX == 8 and currentY == 8):
             logging.info("-- Finished route")
             logging.info("-- Stopping")
             print("Finshed route, Stopping...")
             exit()
+
+        #moves the robot along the grid
         if (direction == 0):
             if currentX < 8:
                 currentX += 1
@@ -173,9 +176,9 @@ def mainControl(marsMap):
 
 """
 Wheel positions:
-0-3
-1*4
-2-5
+2 1 0
+| O |
+5 4 3
 CurrentX & currentY are the center of the rover.
 [0][0] is top left not botton left!
 Must be passed:
@@ -271,13 +274,19 @@ marsMap = mapCreate(10,10) #calls the mapCreate function to make the map
 for i in marsMap:
     print (i)
 
+
+"""
+2 1 0
+| O |
+5 4 3
+"""
 t1 = Thread(target=mainControl,args=(marsMap,))
-t2 = Thread(target=wheel,args=(marsMap,0,-1,-1,)) #wheel
-t3 = Thread(target=wheel,args=(marsMap,1,-1,0,)) #wheel2
-t4 = Thread(target=wheel,args=(marsMap,2,-1,1,)) #wheel3
-t5 = Thread(target=wheel,args=(marsMap,3,1,-1,)) #wheel4
-t6 = Thread(target=wheel,args=(marsMap,4,1,0,)) #wheel5
-t7 = Thread(target=wheel,args=(marsMap,5,1,1,)) #wheel6
+t2 = Thread(target=wheel,args=(marsMap,0,1,-1,)) #wheel0
+t3 = Thread(target=wheel,args=(marsMap,1,0,-1,)) #wheel1
+t4 = Thread(target=wheel,args=(marsMap,2,-1,-1,)) #wheel2
+t5 = Thread(target=wheel,args=(marsMap,3,1,1,)) #wheel3
+t6 = Thread(target=wheel,args=(marsMap,4,0,1,)) #wheel4
+t7 = Thread(target=wheel,args=(marsMap,5,-1,1,)) #wheel5
 t8 = Thread(target=menu,args=(marsMap,))
 
 t1.start()
