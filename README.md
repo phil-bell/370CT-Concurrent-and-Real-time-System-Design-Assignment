@@ -8,7 +8,7 @@ To program a rover that can navigate the surface of mars. The program must use T
 
 ## Operation
 
-Simply run the following in console/terminal:
+Simply run the following in console/terminal with **[Python 3](https://www.python.org/ftp/python/3.6.1/python-3.6.1.exe)**:
 ``` 
 python ./main.py
 ```
